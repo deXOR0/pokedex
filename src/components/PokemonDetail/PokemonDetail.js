@@ -59,11 +59,18 @@ export default function PokemonDetail() {
     };
 
     const getEvolutions = async () => {
-        console.log(id);
-        const response = await axios.get(
-            `https://pokeapi.co/api/v2/evolution-chain/${pokemonData.id}/`
+        const response1 = await axios.get(
+            `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.name}`
         );
-        setEvolutions(response.data.chain.evolves_to);
+        const response2 = await axios.get(response1.data.evolution_chain.url);
+        let { chain } = response2.data;
+        let data = [];
+        while ("evolves_to" in chain) {
+            data = [...data, chain.species.name];
+            chain = chain.evolves_to[0];
+            setEvolutions(data);
+        }
+        console.log("Data: " + data);
     };
 
     useEffect(() => {
@@ -325,9 +332,7 @@ export default function PokemonDetail() {
                                         {evolutions.map((evo) => {
                                             return (
                                                 <li key={uuid()}>
-                                                    {capitalize(
-                                                        evo.species.name
-                                                    )}
+                                                    {capitalize(evo)}
                                                 </li>
                                             );
                                         })}
