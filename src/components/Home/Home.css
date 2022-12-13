@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+h1 {
+    font-family: "Roboto", sans-serif;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+}
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
