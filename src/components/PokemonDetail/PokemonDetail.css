@@ -29,20 +29,24 @@
 
 .detail-image {
     height: 18em;
+    z-index: 999;
 }
 
 .detail-info {
-    width: 100vw;
     background-color: white;
-    height: 52vh;
-    margin-top: -10vh;
     border-radius: 3em 3em 0 0;
-    padding: 3em;
+    padding: 2em;
+    margin-top: -4em;
+    flex-grow: 1;
 }
 
 .info-content {
     display: flex;
     justify-content: space-around;
+}
+
+.info-content > button {
+    z-index: 999999;
 }
 
 .info-table {
@@ -53,4 +57,10 @@
 
 .table-data {
     width: 10em;
+}
+
+.base {
+    display: flex;
+    height: 100vh;
+    flex-flow: column;
 }

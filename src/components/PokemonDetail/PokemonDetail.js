@@ -7,8 +7,8 @@ import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import uuid from "react-uuid";
 import Container from "react-bootstrap/Container";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import { useParams, useLocation } from "react-router-dom";
+import StatsBar from "./StatsBar";
 
 export default function PokemonDetail() {
     const location = useLocation();
@@ -82,7 +82,7 @@ export default function PokemonDetail() {
     return (
         <>
             {pokemonData ? (
-                <>
+                <div className="base">
                     <Container className="main-container">
                         <div className="pokemon-header detail-row">
                             <div>
@@ -233,13 +233,8 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    className="table-data"
-                                                    now={
-                                                        pokemonData.stats[0]
-                                                            .base_stat
-                                                    }
-                                                    label={
+                                                <StatsBar
+                                                    stats={
                                                         pokemonData.stats[0]
                                                             .base_stat
                                                     }
@@ -253,12 +248,8 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    now={
-                                                        pokemonData.stats[1]
-                                                            .base_stat
-                                                    }
-                                                    label={
+                                                <StatsBar
+                                                    stats={
                                                         pokemonData.stats[1]
                                                             .base_stat
                                                     }
@@ -272,12 +263,8 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    now={
-                                                        pokemonData.stats[2]
-                                                            .base_stat
-                                                    }
-                                                    label={
+                                                <StatsBar
+                                                    stats={
                                                         pokemonData.stats[2]
                                                             .base_stat
                                                     }
@@ -291,12 +278,8 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    now={
-                                                        pokemonData.stats[3]
-                                                            .base_stat
-                                                    }
-                                                    label={
+                                                <StatsBar
+                                                    stats={
                                                         pokemonData.stats[3]
                                                             .base_stat
                                                     }
@@ -310,12 +293,8 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    now={
-                                                        pokemonData.stats[4]
-                                                            .base_stat
-                                                    }
-                                                    label={
+                                                <StatsBar
+                                                    stats={
                                                         pokemonData.stats[4]
                                                             .base_stat
                                                     }
@@ -329,13 +308,9 @@ export default function PokemonDetail() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <ProgressBar
-                                                    now={
-                                                        pokemonData.stats[0]
-                                                            .base_stat
-                                                    }
-                                                    label={
-                                                        pokemonData.stats[0]
+                                                <StatsBar
+                                                    stats={
+                                                        pokemonData.stats[5]
                                                             .base_stat
                                                     }
                                                 />
@@ -380,7 +355,7 @@ export default function PokemonDetail() {
                             </div>
                         </Container>
                     </div>
-                </>
+                </div>
             ) : (
                 <>Loading...</>
             )}
